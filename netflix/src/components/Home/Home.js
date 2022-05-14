@@ -1,13 +1,14 @@
 // import Movie from '../Movie/Movie'
 import Spinner from "react-bootstrap/Spinner";
-import Bar from "../Navbar/Navbar";
+
 import MovieList from "../MovieList/MovieList.js";
 import { useEffect, useState } from "react";
+import Navbar1 from "../Navbar/Navbar.js"
 
 export default function Home() {
   const [movies, setMovie] = useState([]);
   async function MovieLib() {
-    let serverUrl = "https://moves-library-14.herokuapp.com";
+    let serverUrl = "https://moves-library-14.herokuapp.com/trending";
     let response = await fetch(
       `https://moves-library-14.herokuapp.com/trending`
     );
@@ -21,7 +22,12 @@ export default function Home() {
     MovieLib();
   }, []);
 
-  return <>{movies.length > 0 && <MovieList movies={movies} />}</>;
+  return (<>
+    <Navbar1/>
+    {movies.length > 0 && <MovieList movies={movies} />}
+    </>);
+
+  
 }
 
 {
