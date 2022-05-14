@@ -7,13 +7,13 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [movies, setMovie] = useState([]);
   async function MovieLib() {
-    let serverUrl = "https://moves-library-14.herokuapp.com"
-    let response = await fetch(`https://moves-library-14.herokuapp.com/trending`);
-    console.log("serverurl",serverUrl);
+    let serverUrl = "https://moves-library-14.herokuapp.com";
+    let response = await fetch(
+      `https://moves-library-14.herokuapp.com/trending`
+    );
+    console.log("serverurl", serverUrl);
     let movieData = await response.json();
     console.log("after updating", movieData);
-
-   
 
     setMovie(movieData);
   }
@@ -21,34 +21,8 @@ export default function Home() {
     MovieLib();
   }, []);
 
-  return (
-    
-    <>
-
-{
-  (movies.length > 0) && <MovieList movies={movies}/>
+  return <>{movies.length > 0 && <MovieList movies={movies} />}</>;
 }
-
-
-    
-</>
-  );
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {
   /* <h1>Welcome to Netflex-Clone!</h1>
