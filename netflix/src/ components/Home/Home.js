@@ -5,6 +5,7 @@ export default function Home(){
 return(
     <>
     <h1>We are at home now</h1>
+    <h1>We are at home now2</h1>
 
   <Spinner animation="border" variant="primary" />
   <Spinner animation="grow" variant="success" />
