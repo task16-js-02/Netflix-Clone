@@ -2,8 +2,7 @@ import Bar from "../Navbar/Navbar";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import ModalMovie from "../ModalMovie/ModalMovie.js"
-
+import ModalMovie from "../ModalMovie/ModalMovie.js";
 
 export default function Movie(props) {
   const [show, setShow] = useState(false);
@@ -13,8 +12,6 @@ export default function Movie(props) {
   const handleShow = (movie) => {
     setclickedMovie(movie);
     setShow(true);
-     
-    
   };
   return (
     <>
@@ -29,15 +26,23 @@ export default function Movie(props) {
         <Card.Body>
           <Card.Title>{props.movie.titl}</Card.Title>
           <Card.Text>{props.movie.details}</Card.Text>
-          <Button variant="primary" onClick={()=>{handleShow(props.movie)}}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleShow(props.movie);
+            }}
+          >
             Show Modal
           </Button>
         </Card.Body>
       </Card>
-{
- clickedMovie && <ModalMovie show={show} handleClose={handleClose} clickedMovie= {clickedMovie}/>
-}
-      
+      {clickedMovie && (
+        <ModalMovie
+          show={show}
+          handleClose={handleClose}
+          clickedMovie={clickedMovie}
+        />
+      )}
     </>
   );
 }
