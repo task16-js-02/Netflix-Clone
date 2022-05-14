@@ -1,4 +1,4 @@
-import Bar from "../Navbar/Navbar";
+import "./Movie.css"
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
@@ -15,10 +15,9 @@ export default function Movie(props) {
   };
   return (
     <>
-      {/* <h1> We are in the move page </h1> */}
-      {/* <Bar /> */}
+     
 
-      <Card style={{ width: "18rem" }}>
+      <Card className= "stylecard" style={{ width: "18rem" }}>
         <Card.Img
           variant="top"
           src="https://cdn-images-1.medium.com/max/1200/1*ty4NvNrGg4ReETxqU2N3Og.png"
