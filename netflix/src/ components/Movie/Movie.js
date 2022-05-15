@@ -1,27 +1,40 @@
-import Bar from "../Navbar/Navbar"
-import MovieList from "../MovieList/MovieList"
+// import Bar from "../Navbar/Navbar"
+// import MovieList from "../MovieList/MovieList"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import {useState} from 'react';
+import ModalMovie from '../ModalMovie/ModalMovie';
+function Movie (props) {
 
-function Movie (props){
+
+  const [show, setShow] = useState(false);
+  const [chosenMovie, setChosenMovie] = useState();
+
+  const handleClose = () => setShow(false);
+  const handleShow = (movie) => {
+      setChosenMovie(movie);
+      setShow(true)
+  }
     return (
 <>
-        <h1> We are in the move page </h1>
-<Bar/>
+
 
 <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
+  <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${props.movie.ID}`} />
   <Card.Body>
-    <Card.Title>Card Title</Card.Title>
+    <Card.Title>{props.movie.titl}</Card.Title>
+    <Card.Text>  {props.movie.rleasDate}</Card.Text>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+    {props.movie.details}
     </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
+    <Button variant="primary" onClick={()=>{handleShow(props.movie)}}>Show MOvie</Button>
   </Card.Body>
 </Card>
-
+{
+    chosenMovie && (<ModalMovie show={show} handleClose={handleClose} chosenMovie={chosenMovie}/>)
+  }
 </>   
     )
 }
+
 export default Movie;

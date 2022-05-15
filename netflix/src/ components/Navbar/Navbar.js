@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown'
 // import DropdownButton from 'react-bootstrap/DropdownButton'
 import Button from 'react-bootstrap/Button'
+import  Form  from 'react-bootstrap/Form';
+import  FormControl  from 'react-bootstrap/FormControl';
+
  function Bar() {
 return (
 
@@ -27,6 +30,15 @@ return (
        <Nav.Link href="/trending"><Button variant="warning">Movie</Button></Nav.Link>
        
     </Nav>
+    <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-success">Search</Button>
+      </Form>
     </Container>
   </Navbar>
  </>

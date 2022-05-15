@@ -1,44 +1,34 @@
-// import Movie from '../Movie/Movie'
-import Spinner from 'react-bootstrap/Spinner'
-import Bar from '../Navbar/Navbar'
+import Movie from '../Movie/Movie'
+
 import MovieList from '../MovieList/MovieList'
-import { useEffect,useStat } from 'react'
+import { useEffect, useState } from 'react';
 
 
 export default function Home(){
-const [movies,setMovie]=useStat([]);
- async function MovieLib(){
-    let serverUrl=process.env.REACT_KEY_SERVER
-   
+const [Movies , setMovies]= useState ([]);
+async function MovieLib(){
+    // let serverUrl=process.env.REACT_KEY_SERVER
+    let serverUrl="https://moves-library-14.herokuapp.com/trending";
     console.log(serverUrl)
-let response = await fetch(`${serverUrl}/trending`)
-
+// let response = await fetch(`${serverUrl}/trending`)
+let response = await fetch(serverUrl)
 let movieData=await response.json()
-
-setMovie(movieData);
+console.log("all", movieData)
+setMovies(movieData);
+console.log("1, After updating", Movies)
 }
-useEffect(()=>{
-    MovieLib();
-},[])
+useEffect(() => { 
+  MovieLib();
+}, [])
 
 
 
 return(
     <>
-    <h1>Welcome to Netflex-Clone!</h1>
-    <h1>We are at home now</h1>
 
-  <Spinner animation="border" variant="primary" />
-  <Spinner animation="grow" variant="success" />
-  <Spinner animation="border" variant="success" />
-  <Spinner animation="border" variant="danger" />
-  <Spinner animation="border" variant="warning" />
-  <Spinner animation="border" variant="info" />
-  <Spinner animation="grow" variant="warning" />
-  <Spinner animation="border" variant="dark" />
-  <Bar/>
+  
   {
-  (movies.length > 0) && <MovieList movee={movies}/>
+  Movies.length > 0 && <MovieList Movies={Movies}/>
 }
   </>
  
