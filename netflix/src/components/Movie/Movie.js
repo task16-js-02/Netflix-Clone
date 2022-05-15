@@ -17,14 +17,17 @@ export default function Movie(props) {
     <>
      
 
-      <Card className= "stylecard" style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem" }}>
         <Card.Img
           variant="top"
-          src="https://cdn-images-1.medium.com/max/1200/1*ty4NvNrGg4ReETxqU2N3Og.png"
+          src={`https://image.tmdb.org/t/p/w500/${props.movie.ID}`}
         />
         <Card.Body>
           <Card.Title>{props.movie.titl}</Card.Title>
-          <Card.Text>{props.movie.details}</Card.Text>
+          <Card.Text>{props.movie.rleasDate}</Card.Text>
+          <Card.Text>
+    {props.movie.details}
+    </Card.Text>
           <Button
             variant="primary"
             onClick={() => {
