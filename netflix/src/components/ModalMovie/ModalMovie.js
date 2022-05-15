@@ -10,7 +10,7 @@ export default function ModalMovie(props) {
         </Modal.Header>
         <Modal.Body>
           <img
-            src="https://cdn-images-1.medium.com/max/1200/1*ty4NvNrGg4ReETxqU2N3Og.png"
+            src={`https://image.tmdb.org/t/p/w500/${props.clickedMovie.ID}`}
             alt="Hey"
           />
           <br />
