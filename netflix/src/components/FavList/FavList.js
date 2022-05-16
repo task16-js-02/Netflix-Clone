@@ -39,7 +39,7 @@ const [favMovie, setFavMovie] = useState();
 
   return (
     <>
-    <Navbar1 />
+    
       {favMovie && favMovie.map((favMovies) => {
           return (
             <Card style={{ width: "18rem" }}>

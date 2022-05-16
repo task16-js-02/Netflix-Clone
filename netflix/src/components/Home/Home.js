@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar1 />
+      {/* <Navbar1 /> */}
       {movies.length > 0 && <MovieList movies={movies} updateMovie={updateMovie} />}
     </>
   );
