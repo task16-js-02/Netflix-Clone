@@ -27,7 +27,7 @@ return (
 </Dropdown></Navbar.Brand>
     <Nav className="me-auto">
       <Nav.Link href="/"><Button variant="success">Home</Button>{' '}</Nav.Link>
-       <Nav.Link href="/trending"><Button variant="warning">Movie</Button></Nav.Link>
+       <Nav.Link href="/getMovies"><Button variant="warning"> Fav Movie</Button></Nav.Link>
        
     </Nav>
     <Form className="d-flex">

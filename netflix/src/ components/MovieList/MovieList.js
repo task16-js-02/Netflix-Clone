@@ -10,7 +10,7 @@ function MovieList(props){
             return (
              
                <div class="column">
-            <Movie  movie={movie}/>
+            <Movie key={movie.ID} movie={movie} updateMovie={props.updateMovie}/>
             </div>
             
             );

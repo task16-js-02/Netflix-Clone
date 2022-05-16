@@ -6,6 +6,7 @@ import Movie from './ components/Movie/Movie';
 import Spinner from 'react-bootstrap/Spinner'
 import Bar from '../src/ components/Navbar/Navbar'
 import Footer from './ components/Footer/Footer';
+import FavList from './ components/FavList/FavList ';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
 </>
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <Route path="/trending" element={<Movie />} /> */}
+      {/* <Route path="trending" element={<FavList />} /> */}
     </Routes>
     <>
     <Footer/>
