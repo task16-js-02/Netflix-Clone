@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
 import FavList from "./components/FavList/FavList.js";
+import Navbar1 from "./components/Navbar/Navbar";
 
 function App() {
   return (
@@ -21,12 +22,14 @@ function App() {
         <Spinner animation="grow" variant="warning" />
       
       </>
+      <Navbar1 />
       <Routes>
         <Route path="/" element={<Home />} />
        <Route path="/favlist" element={<FavList />} /> 
       </Routes>
 
       <Footer />
+      
     </div>
   );
 }
