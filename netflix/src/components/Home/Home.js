@@ -3,31 +3,46 @@ import Spinner from "react-bootstrap/Spinner";
 
 import MovieList from "../MovieList/MovieList.js";
 import { useEffect, useState } from "react";
-import Navbar1 from "../Navbar/Navbar.js"
+import Navbar1 from "../Navbar/Navbar.js";
 
 export default function Home() {
   const [movies, setMovie] = useState([]);
+  
   async function MovieLib() {
-    let serverUrl = "https://moves-library-14.herokuapp.com/trending";
+    let serverUrl = `${process.env.REACT_APP_SERVER}/trending`;
     let response = await fetch(
-      `https://moves-library-14.herokuapp.com/trending`
+      `${process.env.REACT_APP_SERVER}/trending`
     );
-    console.log("serverurl", serverUrl);
+
     let movieData = await response.json();
-    console.log("after updating", movieData);
+   
 
     setMovie(movieData);
+  }
+
+  function updateMovie(newMovie, id) {
+    let updatedMovies = movies.map((movie) => {
+      if (movie.id == id) {
+        movie.comment = newMovie.userComment;
+        return movie;
+      } else {
+        return movie;
+
+      }
+      
+    });
+    setMovie(updatedMovies);
   }
   useEffect(() => {
     MovieLib();
   }, []);
 
-  return (<>
-    <Navbar1/>
-    {movies.length > 0 && <MovieList movies={movies} />}
-    </>);
-
-  
+  return (
+    <>
+      <Navbar1 />
+      {movies.length > 0 && <MovieList movies={movies} updateMovie={updateMovie} />}
+    </>
+  );
 }
 
 {

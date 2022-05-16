@@ -9,7 +9,7 @@ export default function MovieList(props) {
         return (
           <div class="column">
 
-            <Movie movie={movie} />;
+            <Movie movie={movie} updateMovie={props.updateMovie} />;
             </div>
         );
       })}
