@@ -5,7 +5,7 @@ function MovieList(props){
         <div class="row">
        {
         props.Movies.map((movie)=> {
-            console.log(props)
+            // console.log(props)
             
             return (
              

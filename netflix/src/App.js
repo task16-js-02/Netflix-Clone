@@ -25,8 +25,9 @@ function App() {
 <Bar/> 
 </>
     <Routes>
+    <Route path="FavList" element={<FavList />} />
       <Route path="/" element={<Home />} />
-      {/* <Route path="trending" element={<FavList />} /> */}
+  
     </Routes>
     <>
     <Footer/>

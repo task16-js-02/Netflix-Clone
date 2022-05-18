@@ -7,6 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
 import  Form  from 'react-bootstrap/Form';
 import  FormControl  from 'react-bootstrap/FormControl';
+import FavList from '../FavList/FavList ';
 
  function Bar() {
 return (
@@ -27,7 +28,7 @@ return (
 </Dropdown></Navbar.Brand>
     <Nav className="me-auto">
       <Nav.Link href="/"><Button variant="success">Home</Button>{' '}</Nav.Link>
-       <Nav.Link href="/getMovies"><Button variant="warning"> Fav Movie</Button></Nav.Link>
+       <Nav.Link href="/FavList"><Button variant="warning"> FavMovie</Button></Nav.Link>
        
     </Nav>
     <Form className="d-flex">

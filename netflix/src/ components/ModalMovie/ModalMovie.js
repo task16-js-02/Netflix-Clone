@@ -1,43 +1,57 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import axios from "axios";
 export default function ModalMovie(props) {
-    let commentRef=useRef();
+    let commentRef = useRef();
 
-    function handleComment(com){
+    function handleComment(com) {
         com.preventDefault();
-        let userComment=commentRef.current.value
+        let userComment = commentRef.current.value
         console.log(` what the user write${userComment}`)
-        let newComment={...props.chosenMovie,userComment}
-       
-        props.updateMovie(newComment,props.chosenMovie.ID);
+        let newComment = { ...props.chosenMovie, userComment }
+
+        props.updateMovie(newComment, props.chosenMovie.ID);
 
         console.log(` wanted id  ${props.chosenMovie.ID}`)
         console.log(newComment)
     }
 
-   async function handleAddFav (com,Movie){
+    async function handleAddFav(com, Movie) {
+        console.log(Movie, "this is the chosen")
         com.preventDefault();
-        let url=`${process.env.REACT_APP_SERVER}/addMovie`
+        let url = `${process.env.REACT_APP_SERVER}/addMovie`
         let data = {
             titl: Movie.titl,
-            rleasDate: Movie. rleasDate,
+            rleasDate: Movie.rleasDate,
             details: Movie.details,
             Image: Movie.Image,
             comment: Movie.comment,
         }
-        let response=await fetch (url,{
-            method:'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data),
-        })
-        let addedMovie=await response.json();
-        console.log(addedMovie,"heeeeeeeeeeee")
+        let response = await axios.post(url, data
 
+
+
+        )
+            .then(console.log);
+
+
+        //  let response = await fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '*',
+        //         'Content-Type': 'application/json',
+
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+
+        let addedMovie = await response.json();
+        console.log("addedRecipe to th fav page", addedMovie);
     }
+
+
 
 
 
@@ -55,11 +69,11 @@ export default function ModalMovie(props) {
                     <br />
 
                     {props.chosenMovie.details}
-                    <br/>
+                    <br />
                     {props.chosenMovie.ID}
-                    <br/>
-                    <br/>
-                    {props.chosenMovie.comment?props.chosenMovie.comment:"no comment , say somthing man"}
+                    <br />
+                    <br />
+                    {props.chosenMovie.comment ? props.chosenMovie.comment : "no comment , say somthing man"}
 
                 </Modal.Body>
                 <Form>
@@ -68,14 +82,14 @@ export default function ModalMovie(props) {
                         <Form.Label><h4>Add your comment</h4></Form.Label>
                         <Form.Control ref={commentRef} as="textarea" rows={3} />
                     </Form.Group>
-                    <Button variant="warning" type="submit" onClick={(com)=>handleComment(com)} >Submit comment</Button>{'  '}
-                    <Button variant="success" type="submit" onClick={(com)=>handleAddFav(com,props.chosenMovie) }>Add to FAV</Button>{' '}
+                    <Button variant="warning" type="submit" onClick={(com) => handleComment(com)} >Submit comment</Button>{'  '}
+                    <Button variant="success" type="submit" onClick={(com) => handleAddFav(com, props.chosenMovie)}>Add to FAV</Button>{' '}
                 </Form>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={props.handleClose}>
                         Close
                     </Button>
-                  
+
                 </Modal.Footer>
             </Modal>
         </>
