@@ -45,7 +45,7 @@ export default function ModalMovie(props) {
     <>
       <Modal show={props.show} onHide={props.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.clickedMovie.titl}</Modal.Title>
+          <Modal.Title>{props.clickedMovie.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img
@@ -53,11 +53,15 @@ export default function ModalMovie(props) {
             alt="Hey"
           />
           <br />
-          {props.clickedMovie.comment?props.clickedMovie.comment:"No comment"}
+          
           <Form>
+          
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Comment</Form.Label>
+              <Form.Label><h2>{props.clickedMovie.title}</h2></Form.Label>
+              <Form.Label>{props.clickedMovie.overview}</Form.Label>
+              <Form.Label><b> {props.clickedMovie.comment?props.clickedMovie.comment:"No comment , say somthing man "}</b></Form.Label>
               <Form.Control ref={commentRef} type="text" placeholder="Add Comment" />
+             
               <Form.Text className="text-muted">
                 Add your own comment.
               </Form.Text>
@@ -65,12 +69,12 @@ export default function ModalMovie(props) {
 
             <Button variant="primary" type="submit" onClick={(e)=>{handelcomment(e)}}>
               Submit
-            </Button>
+            </Button>{"  "}
             <Button variant="primary" type="submit" onClick={(e)=>{handelAdd(e,props.clickedMovie)}}>
               addToFav
             </Button>
           </Form>
-          {props.clickedMovie.details}
+          
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={props.handleClose}>

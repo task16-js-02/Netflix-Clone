@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Navbar1 from "../Navbar/Navbar";
 import { Container } from "react-bootstrap";
+import '../FavList/FavList.css'
 
 export default function FavList() {
   const [favMovie, setFavMovie] = useState();
@@ -35,9 +36,12 @@ export default function FavList() {
 
   return (
     <>
+    <h1> Fav list page </h1>
+    <div class="row1">
       {favMovie &&
         favMovie.map((favMovies) => {
           return (
+            <div class="column1">
             <Card style={{ width: "18rem" }}>
               <Card.Img
                 variant="top"
@@ -56,11 +60,22 @@ export default function FavList() {
                 >
                   
                   Delete
+                </Button>{"  "}
+
+                <Button
+                  variant="primary"
+                  
+                >
+                  
+                  Update
                 </Button>
               </Card.Body>
             </Card>
+            </div>
           );
         })}
+        
+        </div>
     </>
   );
 }
