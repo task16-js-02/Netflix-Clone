@@ -3,7 +3,7 @@
 }
 
 #root{
-  background-color: rgb(8, 6, 6);
+  background-color: rgb(233, 141, 141);
 }
 
 .App-logo {
@@ -18,7 +18,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #34282d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
